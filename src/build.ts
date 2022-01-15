@@ -1,21 +1,21 @@
-import * as esbuild from "esbuild";
-import path from "path";
+import * as esbuild from 'esbuild';
+import path from 'path';
 
 esbuild.build({
-  entryPoints: [path.join(__dirname, "bin", "lint-staged", "lint-staged")],
-  outfile: "dist/lint-staged.js",
+  entryPoints: [path.join(__dirname, 'bin', 'lint-staged', 'lint-staged')],
+  outfile: 'dist/lint-staged.js',
   bundle: true,
-  format: "cjs",
-  inject: [path.join(__dirname, "bin", "lint-staged", "inject.js")],
+  format: 'cjs',
+  inject: [path.join(__dirname, 'bin', 'lint-staged', 'inject.js')],
   define: {
-    "import.meta.url": "import_meta_url",
+    'import.meta.url': 'import_meta_url',
   },
-  platform: "node",
+  platform: 'node',
 });
 
 esbuild.build({
-  entryPoints: [path.join(__dirname, "bin", "main")],
-  outfile: "dist/main.js",
+  entryPoints: [path.join(__dirname, 'bin', 'main')],
+  outfile: 'dist/main.js',
   bundle: true,
-  platform: "node",
+  platform: 'node',
 });

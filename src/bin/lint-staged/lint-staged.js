@@ -1,55 +1,41 @@
-import fs from "fs";
+import fs from 'fs';
 
-import cmdline from "commander";
+import cmdline from 'commander';
 
-import debug from "debug";
-import supportsColor from "supports-color";
+import debug from 'debug';
+import supportsColor from 'supports-color';
 
-import lintStaged from 'lint-staged'
-import { CONFIG_STDIN_ERROR } from '../../../node_modules/lint-staged/lib/messages'
+import lintStaged from 'lint-staged';
+import { CONFIG_STDIN_ERROR } from '../../../node_modules/lint-staged/lib/messages';
 // Force colors for packages that depend on https://www.npmjs.com/package/supports-color
 if (supportsColor.stdout) {
   process.env.FORCE_COLOR = supportsColor.stdout.level.toString();
 }
 
 // Do not terminate main Listr process on SIGINT
-process.on("SIGINT", () => { });
+process.on('SIGINT', () => {
+  //
+});
 
-
-const version = '1.1.1'
+const version = '1.1.1';
 
 cmdline
   .version(version)
+  .option('--allow-empty', 'allow empty commits when tasks revert all staged changes', false)
+  .option('-c, --config [path]', 'path to configuration file, or - to read from stdin')
+  .option('-d, --debug', 'print additional debug information', false)
+  .option('--no-stash', 'disable the backup stash, and do not revert in case of errors', false)
   .option(
-    "--allow-empty",
-    "allow empty commits when tasks revert all staged changes",
-    false
-  )
-  .option(
-    "-c, --config [path]",
-    "path to configuration file, or - to read from stdin"
-  )
-  .option("-d, --debug", "print additional debug information", false)
-  .option(
-    "--no-stash",
-    "disable the backup stash, and do not revert in case of errors",
-    false
-  )
-  .option(
-    "-p, --concurrent <parallel tasks>",
-    "the number of tasks to run concurrently, or false to run tasks serially",
+    '-p, --concurrent <parallel tasks>',
+    'the number of tasks to run concurrently, or false to run tasks serially',
     true
   )
-  .option("-q, --quiet", "disable lint-staged’s own console output", false)
-  .option("-r, --relative", "pass relative filepaths to tasks", false)
+  .option('-q, --quiet', 'disable lint-staged’s own console output', false)
+  .option('-r, --relative', 'pass relative filepaths to tasks', false)
+  .option('-x, --shell [path]', 'skip parsing of tasks for better shell support', false)
   .option(
-    "-x, --shell [path]",
-    "skip parsing of tasks for better shell support",
-    false
-  )
-  .option(
-    "-v, --verbose",
-    "show task output even when tasks succeed; by default only failed output is shown",
+    '-v, --verbose',
+    'show task output even when tasks succeed; by default only failed output is shown',
     false
   )
   .parse(process.argv);
@@ -57,11 +43,11 @@ cmdline
 const cmdlineOptions = cmdline.opts();
 
 if (cmdlineOptions.debug) {
-  debug.enable("lint-staged*");
+  debug.enable('lint-staged*');
 }
 
-const debugLog = debug("lint-staged:bin");
-debugLog("Running `lint-staged@%s`", version);
+const debugLog = debug('lint-staged:bin');
+debugLog('Running `lint-staged@%s`', version);
 
 /**
  * Get the maximum length of a command-line argument string based on current platform
@@ -72,9 +58,9 @@ debugLog("Running `lint-staged@%s`", version);
  */
 const getMaxArgLength = () => {
   switch (process.platform) {
-    case "darwin":
+    case 'darwin':
       return 262144;
-    case "win32":
+    case 'win32':
       return 8191;
     default:
       return 131072;
@@ -90,20 +76,16 @@ const options = {
   stash: !!cmdlineOptions.stash, // commander inverts `no-<x>` flags to `!x`
   quiet: !!cmdlineOptions.quiet,
   relative: !!cmdlineOptions.relative,
-  shell:
-    cmdlineOptions.shell /* Either a boolean or a string pointing to the shell */,
+  shell: cmdlineOptions.shell /* Either a boolean or a string pointing to the shell */,
   verbose: !!cmdlineOptions.verbose,
 };
 
-debugLog("Options parsed from command-line:", options);
+debugLog('Options parsed from command-line:', options);
 
-if (options.configPath === "-") {
+if (options.configPath === '-') {
   delete options.configPath;
   try {
-    options.config = fs
-      .readFileSync(process.stdin.fd, "utf8")
-      .toString()
-      .trim();
+    options.config = fs.readFileSync(process.stdin.fd, 'utf8').toString().trim();
   } catch {
     console.error(CONFIG_STDIN_ERROR);
     process.exit(1);
