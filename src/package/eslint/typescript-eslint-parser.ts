@@ -1,1 +1,1 @@
-module.exports = require('@typescript-eslint/parser');
+module.exports = require('@typescript-eslint/eslint-plugin');

@@ -24,4 +24,18 @@ export async function buildEslint() {
     format: 'cjs',
     platform: 'node',
   });
+  await esbuild.build({
+    entryPoints: [resolveRoot('src/package/eslint/typescript-eslint-plugin.ts')],
+    outfile: 'dist/typescript-eslint-plugin.js',
+    bundle: true,
+    format: 'cjs',
+    platform: 'node',
+  });
+  await esbuild.build({
+    entryPoints: [resolveRoot('src/package/eslint/typescript-eslint-parser.ts')],
+    outfile: 'dist/typescript-eslint-parser.js',
+    bundle: true,
+    format: 'cjs',
+    platform: 'node',
+  });
 }
