@@ -8,6 +8,11 @@ switch (application) {
     fork(join(__dirname, 'lint-staged.js'), [...args]);
     break;
   }
+  case 'eslint': {
+    console.log(args);
+    fork(join(__dirname, 'eslint.js'), [...args]);
+    break;
+  }
   default: {
     //
   }

@@ -1,6 +1,8 @@
 import * as esbuild from 'esbuild';
 import path from 'path';
+import { buildEslint } from './bin/eslint/build';
 
+buildEslint();
 esbuild.build({
   entryPoints: [path.join(__dirname, 'bin', 'lint-staged', 'lint-staged')],
   outfile: 'dist/lint-staged.js',
