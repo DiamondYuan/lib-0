@@ -13,7 +13,7 @@
   },
   "lint-staged": {
     "src/**/*.{ts, tsx}": [
-      "eslint --fix",
+      "yarn start eslint --fix",
       "git add"
     ]
   },

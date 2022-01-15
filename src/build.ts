@@ -1,6 +1,6 @@
 import * as esbuild from 'esbuild';
 import path from 'path';
-import { buildEslint } from './bin/eslint/build';
+import { buildEslint } from './bin/eslint';
 
 buildEslint();
 esbuild.build({
