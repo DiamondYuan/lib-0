@@ -3,8 +3,6 @@ const _require = Module.prototype.require;
 const set = new Set();
 const path = require('path');
 
-const _resolve = Module._resolveFilename;
-
 // eslint-disable-next-line
 Module.prototype.require = function reallyNeedRequire(name: string) {
   if (!set.has(name) && !name.startsWith('.')) {
@@ -20,3 +18,5 @@ Module.prototype.require = function reallyNeedRequire(name: string) {
   return _require.call(this, name);
 };
 require('../../../node_modules/eslint/bin/eslint.js');
+
+export {};

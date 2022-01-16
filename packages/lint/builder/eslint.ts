@@ -1,6 +1,6 @@
 import * as esbuild from 'esbuild';
 import path from 'path';
-import { resolveRoot } from '../resove';
+import { resolveRoot } from './utils/resove';
 
 export async function buildEslint() {
   await esbuild.build({

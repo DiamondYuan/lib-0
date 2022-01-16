@@ -5,9 +5,11 @@
   "author": "DiamondYuan <admin@diamondyuan.com>",
   "homepage": "https://github.com/DiamondYuan/lib-0#readme",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "@diamondyuan/eslint-plugin-prettier-fake": "0.0.1",
-    "@diamondyuan/eslint-plugin-typescript-fake": "0.0.1",
+    "@diamondyuan/eslint-plugin-typescript-fake": "0.0.1"
+  },
+  "devDependencies": {
     "@diamondyuan/eslint-config-react-typescript": "^7.0.4",
     "@types/node": "^17.0.8",
     "@types/yargs": "^17.0.8",
