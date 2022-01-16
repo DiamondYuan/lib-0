@@ -6,8 +6,8 @@
   "author": "DiamondYuan <admin@diamondyuan.com>",
   "license": "MIT",
   "scripts": {
-    "build": "ts-node src/build.ts",
-    "start": "node dist/main",
+    "build": "cd packages/lint && yarn build",
+    "start": "node packages/lint/dist/bin.js",
     "lint": "yarn start eslint --ext .js,.ts,.tsx .",
     "lint-staged": "yarn start lint-staged"
   },
@@ -26,6 +26,8 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
+    "@diamondyuan/eslint-plugin-prettier-fake": "^0.0.1",
+    "@diamondyuan/eslint-plugin-typescript-fake": "^0.0.1",
     "pre-commit": "^1.2.2"
   }
 }

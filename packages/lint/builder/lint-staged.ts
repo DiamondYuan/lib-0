@@ -1,5 +1,4 @@
 import * as esbuild from 'esbuild';
-import path from 'path';
 import { resolveRoot } from './utils/resove';
 
 export async function buildLintState() {

@@ -1,10 +1,14 @@
-const eslint = require('path').join(__dirname, 'lib/eslint-config-typescript/index.js');
-const prettier = require('path').join(__dirname, 'dist/eslint-config-prettier');
+function resolve(file) {
+  return require('path').join(__dirname, file);
+}
 
 module.exports = {
-  extends: [eslint, prettier],
+  extends: [
+    resolve('packages/lint/lib/eslint-config-typescript/index.js'),
+    resolve('packages/lint/dist/eslint-config-prettier.js'),
+  ],
   plugins: ['@diamondyuan/prettier-fake'],
   rules: {
-    'prettier/prettier': 'error',
+    '@diamondyuan/prettier-fake/prettier': 'error',
   },
 };

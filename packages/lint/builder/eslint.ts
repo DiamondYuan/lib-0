@@ -1,18 +1,17 @@
 import * as esbuild from 'esbuild';
-import path from 'path';
 import { resolveRoot } from './utils/resove';
 
 async function prettier() {
   await esbuild.build({
     entryPoints: [resolveRoot('src/eslint/plugin/eslint-plugin-prettier.js')],
-    outfile: 'dist/eslint-config-prettier.js',
+    outfile: 'dist/eslint-plugin-prettier.js',
     bundle: true,
     format: 'cjs',
     platform: 'node',
   });
   await esbuild.build({
     entryPoints: [resolveRoot('src/eslint/config/eslint-config-prettier.js')],
-    outfile: 'dist/eslint-plugin-prettier.js',
+    outfile: 'dist/eslint-config-prettier.js',
     bundle: true,
     format: 'cjs',
     platform: 'node',

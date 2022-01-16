@@ -1,6 +1,6 @@
 const path = require('path');
 const configJs = path.join(__dirname, '../eslint-config-javascript/index.js');
-const parser = path.join(__dirname, '../../dist/typescript-eslint-parser.js');
+const parser = path.join(__dirname, '../../dist/eslint-parser-typescript.js');
 /**
  * AlloyTeam ESLint 规则 - TypeScript
  *

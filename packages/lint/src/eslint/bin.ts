@@ -8,8 +8,8 @@ Module.prototype.require = function reallyNeedRequire(name: string) {
   if (!set.has(name) && !name.startsWith('.')) {
     console.log('require', name);
     set.add(name);
-    if (name.endsWith('fake-typescript-eslint-eslint-plugin/index.js')) {
-      return _require.call(this, path.join(__dirname, 'typescript-eslint-plugin.js'));
+    if (name.endsWith('eslint-plugin-typescript-fake/index.js')) {
+      return _require.call(this, path.join(__dirname, 'eslint-plugin-typescript.js'));
     }
     if (name.endsWith('eslint-plugin-prettier-fake/index.js')) {
       return _require.call(this, path.join(__dirname, 'eslint-plugin-prettier.js'));
