@@ -6,6 +6,7 @@ async function prettier() {
     entryPoints: [resolveRoot('src/eslint/plugin/eslint-plugin-prettier.js')],
     outfile: 'dist/eslint-plugin-prettier.js',
     bundle: true,
+    minify: true,
     format: 'cjs',
     platform: 'node',
   });
@@ -14,6 +15,7 @@ async function prettier() {
     outfile: 'dist/eslint-config-prettier.js',
     bundle: true,
     format: 'cjs',
+    minify: true,
     platform: 'node',
   });
 }
@@ -25,6 +27,7 @@ async function typescript() {
     bundle: true,
     format: 'cjs',
     platform: 'node',
+    minify: true,
   });
   await esbuild.build({
     entryPoints: [resolveRoot('src/eslint/plugin/eslint-plugin-typescript.js')],
@@ -32,6 +35,7 @@ async function typescript() {
     bundle: true,
     format: 'cjs',
     platform: 'node',
+    minify: true,
   });
 }
 
@@ -42,6 +46,7 @@ async function bin() {
     bundle: true,
     format: 'cjs',
     platform: 'node',
+    minify: true,
   });
   await esbuild.build({
     entryPoints: [resolveRoot('src/eslint/formatters/stylish.js')],
@@ -49,6 +54,7 @@ async function bin() {
     bundle: true,
     format: 'cjs',
     platform: 'node',
+    minify: true,
   });
 }
 

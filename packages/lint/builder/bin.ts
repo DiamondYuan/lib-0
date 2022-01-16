@@ -7,5 +7,6 @@ export async function buildBin() {
     outfile: 'dist/bin.js',
     bundle: true,
     platform: 'node',
+    minify: true,
   });
 }

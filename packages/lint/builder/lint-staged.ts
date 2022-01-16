@@ -6,6 +6,7 @@ export async function buildLintState() {
     entryPoints: [resolveRoot('src/lint-staged/lint-staged.js')],
     outfile: 'dist/lint-staged.js',
     bundle: true,
+    minify: true,
     format: 'cjs',
     inject: [resolveRoot('src/lint-staged/inject.js')],
     define: {
