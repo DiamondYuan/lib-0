@@ -57,9 +57,28 @@ async function bin() {
     minify: true,
   });
 }
+async function react() {
+  await esbuild.build({
+    entryPoints: [resolveRoot('src/eslint/plugin/eslint-plugin-react-hooks.js')],
+    outfile: 'dist/eslint-plugin-react.js',
+    bundle: true,
+    format: 'cjs',
+    platform: 'node',
+    minify: true,
+  });
+  await esbuild.build({
+    entryPoints: [resolveRoot('src/eslint/plugin/eslint-plugin-react-hooks.js')],
+    outfile: 'dist/eslint-plugin-react-hooks.js',
+    bundle: true,
+    format: 'cjs',
+    platform: 'node',
+    minify: true,
+  });
+}
 
 export async function buildEslint() {
   await bin();
   await prettier();
   await typescript();
+  await react();
 }
