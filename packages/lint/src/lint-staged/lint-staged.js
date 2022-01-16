@@ -6,7 +6,7 @@ import debug from 'debug';
 import supportsColor from 'supports-color';
 
 import lintStaged from 'lint-staged';
-import { CONFIG_STDIN_ERROR } from '../../../node_modules/lint-staged/lib/messages';
+import { CONFIG_STDIN_ERROR } from '../../node_modules/lint-staged/lib/messages';
 // Force colors for packages that depend on https://www.npmjs.com/package/supports-color
 if (supportsColor.stdout) {
   process.env.FORCE_COLOR = supportsColor.stdout.level.toString();

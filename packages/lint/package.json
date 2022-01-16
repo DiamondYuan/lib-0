@@ -5,6 +5,9 @@
   "author": "DiamondYuan <admin@diamondyuan.com>",
   "homepage": "https://github.com/DiamondYuan/lib-0#readme",
   "license": "MIT",
+  "scripts": {
+    "build": "ts-node builder/main.ts"
+  },
   "dependencies": {
     "@diamondyuan/eslint-plugin-prettier-fake": "0.0.1",
     "@diamondyuan/eslint-plugin-typescript-fake": "0.0.1"

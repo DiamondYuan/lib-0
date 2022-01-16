@@ -17,6 +17,6 @@ Module.prototype.require = function reallyNeedRequire(name: string) {
   }
   return _require.call(this, name);
 };
-require('../../../node_modules/eslint/bin/eslint.js');
+require('../../node_modules/eslint/bin/eslint.js');
 
 export {};
