@@ -1,6 +1,4 @@
-const path = require('path');
-const configJs = path.join(__dirname, '../eslint-config-javascript/index.js');
-const parser = path.join(__dirname, '../../dist/eslint-parser-typescript.js');
+const paths = require('../paths');
 /**
  * AlloyTeam ESLint 规则 - TypeScript
  *
@@ -10,10 +8,9 @@ const parser = path.join(__dirname, '../../dist/eslint-parser-typescript.js');
  * @fixable 表示此配置支持 --fix
  * @off 表示此配置被关闭了，并且后面说明了关闭的原因
  */
-
 const config = {
-  extends: [configJs],
-  parser: parser,
+  extends: [paths.eslintConfigJavascriptPath],
+  parser: paths.eslintParserTypescript,
   plugins: ['@typescript-eslint'],
   rules: {
     /**
