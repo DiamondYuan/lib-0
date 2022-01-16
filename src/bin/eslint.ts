@@ -38,4 +38,18 @@ export async function buildEslint() {
     format: 'cjs',
     platform: 'node',
   });
+  await esbuild.build({
+    entryPoints: [resolveRoot('src/package/eslint/eslint-config-prettier.ts')],
+    outfile: 'dist/eslint-config-prettier.js',
+    bundle: true,
+    format: 'cjs',
+    platform: 'node',
+  });
+  await esbuild.build({
+    entryPoints: [resolveRoot('src/package/eslint/eslint-plugin-prettier.ts')],
+    outfile: 'dist/eslint-plugin-prettier.js',
+    bundle: true,
+    format: 'cjs',
+    platform: 'node',
+  });
 }
